@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --fix ./src",
+    "prettier:write": "prettier --write .",
+    "prettier:check": "prettier --check ."
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,11 @@
     "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
     "prettier": "^2.8.4"
+  },
+  "lint-staged": {
+    "**/*.{js,html,css,json,yaml,md}": "npm run prettier:check",
+    "**/*.{js}": "npm run lint"
   }
 }
