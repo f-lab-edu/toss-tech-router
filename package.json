@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --fix ./src",
     "prettier:write": "prettier --write .",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier --check . --ignore-path .prettierignore"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,8 @@
   "lint-staged": {
     "**/*.{js,html,css,json,yaml,md}": "npm run prettier:check",
     "**/*.{js}": "npm run lint"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
