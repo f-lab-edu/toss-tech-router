@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack && http-server",
     "lint": "eslint --fix ./src",
     "prettier:write": "prettier --write .",
     "prettier:check": "prettier --check . --ignore-path .prettierignore"
@@ -20,13 +21,19 @@
   },
   "homepage": "https://github.com/f-lab-edu/toss-tech-router#readme",
   "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
     "eslint": "^8.35.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.76.0",
+    "webpack-cli": "^5.0.1"
   },
   "lint-staged": {
     "**/*.{js,html,css,json,yaml,md}": "npm run prettier:check",
