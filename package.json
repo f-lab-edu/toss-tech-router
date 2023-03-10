@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack && http-server",
+    "dev": "webpack --watch && http-server",
     "lint": "eslint --fix ./src",
-    "prettier:write": "prettier --write .",
-    "prettier:check": "prettier --check . --ignore-path .prettierignore"
+    "prettier:write": "prettier --write ./src",
+    "prettier:check": "prettier --check ./src"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,9 @@
     "url": "https://github.com/f-lab-edu/toss-tech-router/issues"
   },
   "homepage": "https://github.com/f-lab-edu/toss-tech-router#readme",
+  "dependencies": {
+    "msw": "^1.1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.21.0",
     "babel-loader": "^9.1.2",
