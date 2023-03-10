@@ -1,3 +1,5 @@
 .idea
 /node_modules
 .eslintcache
+public/*.bundle.*
+public/bundle.js*
