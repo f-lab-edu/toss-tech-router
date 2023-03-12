@@ -13,6 +13,9 @@ function Navbar({ $target }) {
           <li>
             <a href='/article/title/description' data-link='/article/title/description'>post</a>
           </li>
+          <li>
+            <a href='/abc' data-link='/abc'>page not found</a>
+          </li>
         </ul>
       </nav>
     `;

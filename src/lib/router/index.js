@@ -8,7 +8,8 @@ const checkRoutes = (routes, pathname, $target) => {
   });
 
   if (!currentRoute) {
-    console.log('not found');
+    const notFoundRoute = routes.find((route) => route.path === '/404');
+    new notFoundRoute.component({ $target }).render();
     return;
   }
 
