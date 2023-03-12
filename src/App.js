@@ -1,5 +1,5 @@
 import { Navbar } from './ui/components';
-import { initRouter } from './lib/router';
+import initRouter from './lib/router';
 import routes from './lib/router/routes';
 
 function App({ $target }) {

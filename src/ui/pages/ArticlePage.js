@@ -5,6 +5,7 @@ function ArticlePage({ $target, params }) {
     $page.innerHTML = `
       <h1>Article Page</h1>
       <p>Article ID: ${params.id}</p>
+      <p>Article title: ${params.title}</p>
     `;
     $target.innerHTML = '';
     $target.appendChild($page);

@@ -1,55 +1,24 @@
-import { NotFoundPage } from '../../ui/pages';
-
 const ROUTE_PARAMETER_REGEXP = /:(\w+)/g;
 const URL_FRAGMENT_REGEXP = '([^\\/]+)';
 
-function Router({ $target, routes }) {
-  let lastPathname;
-  const parsedRoutes = routes.map((route) => {
-    const params = [];
-    const parsedPath = route.path
-      .replace(ROUTE_PARAMETER_REGEXP, (match, paramName) => {
-        params.push(paramName);
-        return URL_FRAGMENT_REGEXP;
-      })
-      .replace(/\//g, '\\/');
-    return {
-      ...route,
-      regexp: new RegExp(`^${parsedPath}$`),
-      params,
-    };
+const checkRoutes = (routes, pathname, $target) => {
+  const currentRoute = routes.find((route) => {
+    const { regexp } = route;
+    return regexp.test(pathname);
   });
 
-  this.checkRoutes = () => {
-    const { pathname } = window.location;
-    if (lastPathname === pathname) {
-      return;
-    }
+  if (!currentRoute) {
+    console.log('not found');
+    return;
+  }
 
-    lastPathname = pathname;
+  const params = getUrlParams(currentRoute, pathname);
+  new currentRoute.component({ $target, params }).render();
+};
 
-    const currentRoute = parsedRoutes.find((route) => {
-      const { regexp } = route;
-      return regexp.test(pathname);
-    });
-
-    if (!currentRoute) {
-      new NotFoundPage({ $target }).render();
-      return;
-    }
-
-    const params = extractUrlParams(currentRoute, pathname);
-    new currentRoute.component({ $target, params }).render();
-  };
-
-  this.navigateTo = (path) => {
-    window.history.pushState(null, null, path);
-    this.checkRoutes();
-  };
-}
-
-const extractUrlParams = (route, pathname) => {
+const getUrlParams = (route, pathname) => {
   const params = {};
+
   if (route.params.length === 0) {
     return params;
   }
@@ -63,17 +32,44 @@ const extractUrlParams = (route, pathname) => {
   return params;
 };
 
-export const initRouter = ({ $target, $element, routes }) => {
-  const router = new Router({ $target: $element, routes });
-  router.checkRoutes();
-  window.addEventListener('popstate', router.checkRoutes);
-  $target.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-      e.preventDefault();
-      const { link } = e.target.dataset;
-      router.navigateTo(link);
-    }
-  });
+const handlePopstate = (routes, $target) => {
+  checkRoutes(routes, window.location.pathname, $target);
 };
 
-export default Router;
+const handleLinkClick = (routes, $target, e) => {
+  const $link = e.target.closest('a[data-link]');
+
+  if ($link) {
+    e.preventDefault();
+    const { link } = $link.dataset;
+    window.history.pushState(null, null, link);
+    checkRoutes(routes, link, $target);
+  }
+};
+
+const initRouter = ({ $target, $element, routes }) => {
+  const parsedRoutes = routes.map((route) => {
+    const params = [];
+
+    const parsedPath = route.path
+      .replace(ROUTE_PARAMETER_REGEXP, (match, paramName) => {
+        params.push(paramName);
+        return URL_FRAGMENT_REGEXP;
+      })
+      .replace(/\//g, '\\/');
+
+    const regexp = new RegExp(`^${parsedPath}$`);
+
+    return {
+      ...route,
+      params,
+      regexp,
+    };
+  });
+
+  window.addEventListener('popstate', handlePopstate.bind(null, parsedRoutes, $element));
+  $target.addEventListener('click', handleLinkClick.bind(null, parsedRoutes, $element));
+  checkRoutes(parsedRoutes, window.location.pathname, $element);
+};
+
+export default initRouter;

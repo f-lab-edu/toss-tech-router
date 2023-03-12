@@ -8,10 +8,10 @@ function Navbar({ $target }) {
             <a href='/' data-link='/'>root</a>
           </li>
           <li>
-            <a href='/article/asdasd' data-link='/article/asdasd'>list</a>
+            <a href='/article/안녕하세요' data-link='/article/안녕하세요'>list</a>
           </li>
           <li>
-            <a href='/post' data-link='/post'>post</a>
+            <a href='/article/title/description' data-link='/article/title/description'>post</a>
           </li>
         </ul>
       </nav>
