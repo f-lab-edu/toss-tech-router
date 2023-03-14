@@ -1,12 +1,19 @@
 {
   "extends": ["airbnb-base", "plugin:prettier/recommended"],
-  "plugins": ["prettier", "import"],
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
   "rules": {
     "prettier/prettier": "error",
     "no-console": "off",
     "import/prefer-default-export": "off",
     "no-undef": "off",
     "no-use-before-define": "off",
-    "no-new": "off"
+    "no-new": "off",
+    "no-restricted-syntax": "off",
+    "no-param-reassign": "off",
+    "new-cap": "off"
   }
 }
