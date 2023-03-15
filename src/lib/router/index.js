@@ -13,7 +13,11 @@ const checkRoutes = (routes, pathname, $target) => {
   }
 
   const params = getUrlParams(currentRoute, pathname);
-  new currentRoute.component({ $target, params }).render();
+  renderRoute({
+    component: currentRoute.component,
+    $target,
+    params,
+  });
 };
 
 const getUrlParams = (route, pathname) => {
@@ -30,6 +34,14 @@ const getUrlParams = (route, pathname) => {
   });
 
   return params;
+};
+
+const renderRoute = ({ component, $target, params }) => {
+  const hasParams = Object.keys(params).length > 0;
+  new component({
+    $target,
+    ...(hasParams && { params }),
+  }).render();
 };
 
 const handlePopstate = (routes, $target) => {
