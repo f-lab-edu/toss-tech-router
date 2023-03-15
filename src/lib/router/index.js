@@ -1,5 +1,4 @@
-const ROUTE_PARAMETER_REGEXP = /:(\w+)/g;
-const URL_FRAGMENT_REGEXP = '([^\\/]+)';
+import { REGEXP } from '../utils/constant';
 
 const checkRoutes = (routes, pathname, $target) => {
   const currentRoute = routes.find((route) => {
@@ -53,9 +52,9 @@ const initRouter = ({ $target, $element, routes }) => {
     const params = [];
 
     const parsedPath = route.path
-      .replace(ROUTE_PARAMETER_REGEXP, (match, paramName) => {
+      .replace(REGEXP.ROUTE_PARAMETER, (match, paramName) => {
         params.push(paramName);
-        return URL_FRAGMENT_REGEXP;
+        return REGEXP.URL_FRAGMENT;
       })
       .replace(/\//g, '\\/');
 
