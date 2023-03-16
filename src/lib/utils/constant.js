@@ -22,7 +22,7 @@ export const ARTICLES = [
     title: '똑똑하게 브라우저 Polyfill 관리하기',
     description: '현대적인 JavaScript를 쓰면서도 넓은 범위의 기기를 지원하기 위한 Polyfill을 어떻게 똑똑하게 설정할 수 있는지 소개합니다.\\\\\\\\n',
     date: '2023. 1. 21',
-    link: 'article/16',
+    link: '/article/16',
   },
   {
     thumbnail:
@@ -31,7 +31,7 @@ export const ARTICLES = [
     description:
       '토스증권 해외주식 출시 전에 사내 임직원 대상으로 진행한 ‘통합테스트’에 대해 소개합니다. 통합테스트 진행 방식을 참고하여 간단한 규칙과 사용자 시나리오를 활용해 사용자의 반응을 미리 확인해 보세요.\\\\\\\\n',
     date: '2022. 12. 12',
-    link: 'article/15',
+    link: '/article/15',
   },
   {
     thumbnail:
@@ -40,7 +40,7 @@ export const ARTICLES = [
     description:
       'NestJS에서 데코레이터를 만들기 위해서는 NestJS의 DI와 메타 프로그래밍 환경 등을 고려해야 합니다. 어떻게 하면 이러한 NestJS 환경에 맞는 데코레이터를 만들 수 있을지 고민해보았습니다.\\\\\\\\n',
     date: '2022. 11. 22',
-    link: 'article/14',
+    link: '/article/14',
   },
   {
     thumbnail:
@@ -49,7 +49,7 @@ export const ARTICLES = [
     description:
       '타입호환성은 무엇이며 왜 필요할까요? 타입호환이 지원되지 않는 경우가 존재한다는 것을 아셨나요? 평소 익숙했던 개념들에 대해 질문을 던져가며 TypeScript 타입 시스템에 관해 심도있게 알아보고자 합니다. \\\\\\\\n',
     date: '2022. 10. 26',
-    link: 'article/13',
+    link: '/article/13',
   },
   {
     thumbnail:
@@ -57,7 +57,7 @@ export const ARTICLES = [
     title: '토스증권 QA Team을 소개합니다',
     description: '이 글은 토스증권 QA Team에 입사를 고려 중인 지원자들을 위해 작성된 글입니다. 토스증권 QA Manager 하는 역할과 일하는 방식은 어떻게 다를까요?\\\\\\\\n',
     date: '2022. 10. 25',
-    link: 'article/12',
+    link: '/article/12',
   },
   {
     thumbnail:
@@ -65,7 +65,7 @@ export const ARTICLES = [
     title: 'CommonJS와 ESM에 모두 대응하는 라이브러리 개발하기: exports field',
     description: 'Node.js에는 두 가지 Module System이 존재합니다. 토스 프론트엔드 챕터에서 운영하는 100개가 넘는 라이브러리들은 그것에 어떻게 대응하고 있을까요?\\\\\\\\n',
     date: '2022. 10. 4',
-    link: 'article/11',
+    link: '/article/11',
   },
   {
     thumbnail:
@@ -74,7 +74,7 @@ export const ARTICLES = [
     description:
       '혹시 테스트 코드에서도 의존성을 관리해본 적이 있으실까요? 해당 포스트에서는 Gradle의 java-test-fixtures 플러그인을 사용하여 테스트 의존성 관리를 통해 높은 품질의 테스트 코드를 유지하는 방법을 알아봅니다.\\\\\\\\n',
     date: '2022. 6. 9',
-    link: 'article/10',
+    link: '/article/10',
   },
   {
     thumbnail:
@@ -82,7 +82,7 @@ export const ARTICLES = [
     title: '에러 핸들링을 다른 클래스에게 위임하기 (Kotlin 100% 활용)',
     description: 'Kotlin의 Result로 MSA에서 에러가 전파되지 않는 안전한 환경을 만드는 방법을 알아봅니다.\\\\\\\\n',
     date: '2022. 5. 14',
-    link: 'article/9',
+    link: '/article/9',
   },
   {
     thumbnail:
@@ -91,7 +91,7 @@ export const ARTICLES = [
     description:
       '토스페이먼츠에서는 API docs를 REST Docs를 사용해서 작성할 수 있도록 권장하고 있습니다. 이 글에서는 DSL을 통해서 반복적인 REST Docs 테스트 코드 작성을 줄일 수 있는 방법을 알아봅니다.\\\\\\\\n',
     date: '2022. 4. 11',
-    link: 'article/8',
+    link: '/article/8',
   },
   {
     thumbnail:
@@ -100,7 +100,7 @@ export const ARTICLES = [
     description:
       'SPA(Single Page Application) 구조로 웹 프론트엔드 애플리케이션이 개발되면서 초기 렌더링 속도는 프런트엔드 개발자에게 중요한 과제 중 하나가 되었습니다. 사용자 경험에 영향을 줄 수 있는 가장 큰 요소 중 하나가 바로 속도이기 때문입니다.\\\\\\\\n',
     date: '2022. 2. 9',
-    link: 'article/7',
+    link: '/article/7',
   },
   {
     thumbnail:
@@ -108,7 +108,7 @@ export const ARTICLES = [
     title: '개발자의 애질리티',
     description: '이 글은 토스페이먼츠에 입사하신, 혹은 입사를 고려 중인 개발자분들을 위해 작성된 글입니다. 애자일하게 일한다는 것은 어떠한 의미일까요?\\\\\\\\n',
     date: '2021. 10. 14',
-    link: 'article/6',
+    link: '/article/6',
   },
   {
     thumbnail:
@@ -116,7 +116,7 @@ export const ARTICLES = [
     title: 'Template Literal Types로 타입 안전하게 코딩하기',
     description: 'TypeScript 코드베이스의 타입 안전성을 한 단계 올려줄 수 있는 Template Literal Type의 뜻과 응용에 대해 알아봅니다.\\\\\\\\n',
     date: '2021. 5. 14',
-    link: 'article/5',
+    link: '/article/5',
   },
   {
     thumbnail:
@@ -124,7 +124,7 @@ export const ARTICLES = [
     title: 'node_modules로부터 우리를 구원해 줄 Yarn Berry',
     description: '토스 프론트엔드 레포지토리 대부분에서 사용하고 있는 패키지 매니저 Yarn Berry. 채택하게 된 배경과 사용하면서 좋았던 점을 공유합니다.\\\\\\\\n',
     date: '2021. 5. 7',
-    link: 'article/4',
+    link: '/article/4',
   },
   {
     thumbnail:
@@ -132,7 +132,7 @@ export const ARTICLES = [
     title: 'JSCodeShift로 기술 부채 청산하기',
     description: '기술 부채는 개발할수록 쌓여만 갑니다. 프론트엔드 챕터가 JSCodeShift를 이용하여 순식간에 100개 서비스의 기술 부채를 해결한 경험을 소개합니다.\\\\\\\\n',
     date: '2021. 5. 4',
-    link: 'article/3',
+    link: '/article/3',
   },
   {
     thumbnail:
@@ -140,7 +140,7 @@ export const ARTICLES = [
     title: '웹 서비스 캐시 똑똑하게 다루기',
     description: '웹 성능을 위해 꼭 필요한 캐시, 제대로 설정하기 쉽지 않습니다. 토스 프론트엔드 챕터에서 올바르게 캐시를 설정하기 위한 노하우를 공유합니다.\\\\\\\\n',
     date: '2021. 4. 29',
-    link: 'article/2',
+    link: '/article/2',
   },
   {
     thumbnail:
@@ -148,7 +148,7 @@ export const ARTICLES = [
     title: '토스 프론트엔드 챕터를 소개합니다!',
     description: '토스에서 프론트엔드 개발자가 일하는 방법과 맡고 있는 역할에 대해 소개드립니다.\\\\\\\\n',
     date: '2021. 4. 28',
-    link: 'article/1',
+    link: '/article/1',
   },
 ];
 

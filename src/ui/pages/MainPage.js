@@ -1,9 +1,16 @@
+import { apiGetArticleList } from '../../lib/api/article';
+
 function MainPage({ $target }) {
   const $page = document.createElement('div');
 
-  this.render = () => {
+  this.render = async () => {
+    const response = await apiGetArticleList();
+    const articlesHTML = response.map((article) => `<div><a href="${article.link}" data-link="${article.link}">${article.title}</a></div>`).join('');
     $page.innerHTML = `
-      <h1>안녕하세요</h1>
+      <h1>Article List</h1>
+      <section style="margin-top: 20px;">
+        ${articlesHTML}      
+      </section>
     `;
     $target.innerHTML = '';
     $target.appendChild($page);
