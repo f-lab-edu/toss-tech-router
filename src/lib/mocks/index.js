@@ -1,11 +1,11 @@
 import { setupWorker } from 'msw';
-import { handlers } from './handlers';
-
-export const worker = setupWorker(...handlers);
+import { mockGetArticleDetail, mockGetArticleList } from './api';
 
 export const initialWorker = async () => {
   try {
     if (typeof window !== 'undefined') {
+      const mockApiHandler = [mockGetArticleList, mockGetArticleDetail].map((handler) => handler());
+      const worker = setupWorker(...mockApiHandler);
       await worker.start();
       return true;
     }
