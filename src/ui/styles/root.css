@@ -1,0 +1,11 @@
+:root {
+  --border-grey: rgba(0, 27, 55, 0.1);
+  --border-radius: 14px;
+  --color-h3: #333d4b;
+  --color-h7: #4e5968;
+  --color-p: #8b95a1;
+  --color-blue: #3182f6;
+  --font-size-h3: 36px;
+  --font-size-h7: 17px;
+  --font-size-p: 15px;
+}
