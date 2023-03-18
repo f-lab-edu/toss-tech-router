@@ -1,4 +1,5 @@
 import { REGEXP } from '../utils/constant';
+import { isObjectEmpty } from '../utils/apiUtils';
 
 const checkRoutes = (routes, pathname, $target) => {
   const currentRoute = routes.find((route) => {
@@ -37,7 +38,7 @@ const getUrlParams = (route, pathname) => {
 };
 
 const renderRoute = ({ component, $target, params }) => {
-  const hasParams = Object.keys(params).length > 0;
+  const hasParams = isObjectEmpty(params);
   new component({
     $target,
     ...(hasParams && { params }),
