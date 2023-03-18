@@ -5,7 +5,17 @@
   --color-h7: #4e5968;
   --color-p: #8b95a1;
   --color-blue: #3182f6;
+  --color-white: #fff;
+  --font-size-h2: 48px;
   --font-size-h3: 36px;
   --font-size-h7: 17px;
   --font-size-p: 15px;
+  --font-size-span: 14px;
+
+  --main-page-container-width: 92%;
+  --main-page-container-margin: 4%;
+  --article-space: 80px;
+  --thumbnail-width: 240px;
+  --thumbnail-height: 240px;
+  --thumbnail-transition: 0.2s ease-in-out;
 }
