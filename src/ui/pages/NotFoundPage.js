@@ -1,13 +1,28 @@
-function NotFoundPage({ $target }) {
-  const $page = document.createElement('div');
+class NotFoundPage extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
 
-  this.render = () => {
-    $page.innerHTML = `
-      <h1>NotFound</h1>
+  connectedCallback() {
+    this.render();
+  }
+
+  createNotFoundPageHTML() {
+    return `
+      <content>
+        <h1>Not Found Page</h1>          
+      </content>
     `;
-    $target.innerHTML = '';
-    $target.appendChild($page);
-  };
+  }
+
+  render() {
+    const notFoundPageHTML = this.createNotFoundPageHTML();
+    this.shadowRoot.innerHTML = notFoundPageHTML;
+  }
 }
+
+export const notFoundPageTagName = 'notfound-page';
+customElements.define(notFoundPageTagName, NotFoundPage);
 
 export default NotFoundPage;

@@ -1,10 +1,11 @@
-import { ArticlePage, MainPage, NotFoundPage } from '../../ui/pages';
+import { mainPageTagName } from '../../ui/pages/MainPage';
+import { articlePageTageName } from '../../ui/pages/ArticlePage';
+import { notFoundPageTagName } from '../../ui/pages/NotFoundPage';
 
 const routes = [
-  { path: '/', component: MainPage },
-  { path: '/article/:id', component: ArticlePage },
-  { path: '/article/:id/:title', component: ArticlePage },
-  { path: '/404', component: NotFoundPage },
+  { path: '/', tagName: mainPageTagName },
+  { path: '/article/:articleId', tagName: articlePageTageName },
+  { path: '/404', tagName: notFoundPageTagName },
 ];
 
 export default routes;
