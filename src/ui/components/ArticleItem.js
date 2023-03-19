@@ -28,8 +28,8 @@ class ArticleItem extends HTMLElement {
           width: var(--thumbnail-width);
           height: var(--thumbnail-height);
           object-fit: cover;
-          border-radius: 14px;
-          margin-right: 48px;
+          border-radius: 0.875rem;
+          margin-right: 3rem;
           transition: var(--thumbnail-transition);
         }
         .article__description {
@@ -43,13 +43,13 @@ class ArticleItem extends HTMLElement {
           font-size: var(--font-size-h3);
           color: var(--color-h3);
           word-break: keep-all;
-          margin: 0 0 14px 0;
+          margin: 0 0 0.875rem 0;
         }
         .article__description > h7 {
           font-size: var(--font-size-h7);
           color: var(--color-h7);
           word-break: keep-all;
-          margin: 0 0 14px 0;
+          margin: 0 0 0.875rem 0;
         }
         .article__description > p:last-child {
           font-size: var(--font-size-p);
@@ -64,15 +64,15 @@ class ArticleItem extends HTMLElement {
           }
           .article__thumbnail {
             width: 100%;
-            height: 200px;
-            margin: 0 0 20px 0;
+            height: 12.5rem;
+            margin: 0 0 1.25rem 0;
           }
           .article__description {
             width: 100%;
           }
           .article__description > h3 {
-            font-size: 26px;
-            margin: 0 0 10px 0;
+            font-size: 1.625rem;
+            margin: 0 0 0.625rem 0;
           }
         }
       </style>

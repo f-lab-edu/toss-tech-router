@@ -18,11 +18,11 @@ class ArticleHeader extends HTMLElement {
         }
         .article-header__thumbnail {
           width: 100%;
-          margin: 36px 0 0 0;
+          margin: 2.25rem 0 0 0;
           border-radius: var(--border-radius);
         }
         .article-header__title {
-          margin: 20px 0 0 0;
+          margin: 1.25rem 0 0 0;
           font-size: var(--font-size-h2);
           color: var(--color-h3);
           line-height: 1.25;

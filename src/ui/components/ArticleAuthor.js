@@ -15,13 +15,13 @@ class ArticleAuthor extends HTMLElement {
           display: flex;
           flex-direction: row;
           align-items: center;
-          margin: 20px 0 0 0;
+          margin: 1.25rem 0 0 0;
         }
         .article-author__img {
-          width: 48px;
-          height: 48px;
-          border-radius: 156px;
-          margin-right: 14px;
+          width: 3rem;
+          height: 3rem;
+          border-radius: 9.75rem;
+          margin-right: 0.875rem;
         }
         .article-author__info {
           display: flex;
@@ -30,7 +30,7 @@ class ArticleAuthor extends HTMLElement {
         .article-author__name-job {
           font-size: var(--font-size-h7);
           color: var(--color-h7);
-          margin: 8px 0 2px 0;
+          margin: 0.5rem 0 0.125rem 0;
         }
         .article-author__date {
           font-size: var(--font-size-span);

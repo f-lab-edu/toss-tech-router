@@ -18,9 +18,9 @@ class ArticlePage extends HTMLElement {
         :host {
           display: block;
           width: 100%;
-          max-width: 700px;
+          max-width: 43.75rem;
           height: 100%;
-          margin: 0 auto 192px auto;
+          margin: 0 auto 12rem auto;
         }
         .article-page__container {
             width: 92%;

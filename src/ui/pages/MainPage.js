@@ -17,9 +17,9 @@ class MainPage extends HTMLElement {
         :host {
           display: block;
           width: 100%;
-          max-width: 980px;
+          max-width: 61.25rem;
           height: 100%;
-          margin: 0 auto 192px auto;
+          margin: 0 auto 12rem auto;
         }
         .main-page__container {
           width: var(--main-page-container-width);
@@ -29,7 +29,7 @@ class MainPage extends HTMLElement {
           width: 100%;
           background-color: var(--color-white);
           display: block;
-          padding: 72px 0 52px 0;
+          padding: 4.5rem 0 3.25rem 0;
           margin: 0;
           font-size: var(--font-size-h3);
         }

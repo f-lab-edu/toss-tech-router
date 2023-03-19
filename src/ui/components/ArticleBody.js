@@ -15,7 +15,7 @@ class ArticleBody extends HTMLElement {
           font-size: var(--font-size-h7);
           color: var(--color-h7);
           line-height: 1.7;
-          margin: 54px 0 0 0;
+          margin: 3.375rem 0 0 0;
         }
       </style>
     `;
