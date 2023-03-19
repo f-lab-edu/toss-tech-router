@@ -41,20 +41,20 @@ class ArticleAuthor extends HTMLElement {
     `;
   }
 
-  createArticleAuthorHTML(props) {
+  createHTML({ image, name, job, date }) {
     return `
       <div class='article-author'>
         <img
           class='article-author__img'
-          src='${props.image}'
+          src='${image}'
           alt='작성자 프로필 이미지'
         />
         <div class='article-author__info'>
           <p class='article-author__name-job'>
-            <span>${props.name}</span>
-            <span>${props.job}</span>
+            <span>${name}</span>
+            <span>${job}</span>
           </p>
-          <span class='article-author__date'>${props.date}</span>
+          <span class='article-author__date'>${date}</span>
         </div>
       </div>
     `;
@@ -67,10 +67,10 @@ class ArticleAuthor extends HTMLElement {
       job: this.getAttribute('job'),
       date: this.getAttribute('date'),
     };
-    const articleAuthorHTML = this.createArticleAuthorHTML(props);
+    const html = this.createHTML(props);
     this.shadowRoot.innerHTML = `
       ${this.styles}
-      ${articleAuthorHTML}
+      ${html}
     `;
   }
 }

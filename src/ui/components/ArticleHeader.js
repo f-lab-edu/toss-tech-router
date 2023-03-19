@@ -38,20 +38,20 @@ class ArticleHeader extends HTMLElement {
     `;
   }
 
-  createArticleHeaderHTML(props) {
+  createHTML({ thumbnail, title, image, name, job, date }) {
     return `
       <header class='article-header'>
         <img
           class='article-header__thumbnail'
-          srcset='${props.thumbnail}'
-          alt='${props.title} 썸네일 이미지'
+          srcset='${thumbnail}'
+          alt='${title} 썸네일 이미지'
         />
-        <h2 class='article-header__title'>${props.title}</h2>
+        <h2 class='article-header__title'>${title}</h2>
         <article-author
-          image='${props.image}'
-          name='${props.name}'
-          job='${props.job}'
-          date='${props.date}'
+          image='${image}'
+          name='${name}'
+          job='${job}'
+          date='${date}'
         ></article-author>
       </header>
     `;
@@ -66,10 +66,10 @@ class ArticleHeader extends HTMLElement {
       job: this.getAttribute('job'),
       date: this.getAttribute('date'),
     };
-    const articleHeaderHTML = this.createArticleHeaderHTML(props);
+    const html = this.createHTML(props);
     this.shadowRoot.innerHTML = `
       ${this.styles}
-      ${articleHeaderHTML}
+      ${html}
     `;
   }
 }

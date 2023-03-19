@@ -79,6 +79,27 @@ class ArticleItem extends HTMLElement {
     `;
   }
 
+  createHTML({ link, title, description, date, thumbnail }) {
+    return `
+      <a
+        class='article'
+        href='${link}'
+        data-link='${link}'
+      >
+        <img
+          class='article__thumbnail'
+          srcset='${thumbnail}'
+          alt='${title} 썸네일 이미지'
+        />
+        <div class='article__description'>
+          <h3>${title}</h3>
+          <h7>${description}</h7>
+          <p>${date}</p>
+        </div>
+      </a>
+    `;
+  }
+
   render() {
     const props = {
       link: this.getAttribute('link'),
@@ -87,24 +108,10 @@ class ArticleItem extends HTMLElement {
       date: this.getAttribute('date'),
       thumbnail: this.getAttribute('thumbnail'),
     };
+    const html = this.createHTML(props);
     this.shadowRoot.innerHTML = `
       ${this.styles}
-      <a
-        class='article'
-        href='${props.link}'
-        data-link='${props.link}'
-      >
-        <img
-          class='article__thumbnail'
-          srcset='${props.thumbnail}'
-          alt='${props.title} 썸네일 이미지'
-        />
-        <div class='article__description'>
-          <h3>${props.title}</h3>
-          <h7>${props.description}</h7>
-          <p>${props.date}</p>
-        </div>
-      </a>
+      ${html}
     `;
   }
 }

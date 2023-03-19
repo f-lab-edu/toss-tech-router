@@ -21,10 +21,10 @@ class ArticleBody extends HTMLElement {
     `;
   }
 
-  createArticleBodyHTML(props) {
+  createHTML({ description }) {
     return `
       <article class='article-body'>
-        <p>${props.description}</p>          
+        <p>${description}</p>          
       </article>
     `;
   }
@@ -33,10 +33,10 @@ class ArticleBody extends HTMLElement {
     const props = {
       description: this.getAttribute('description'),
     };
-    const articleBodyHTML = this.createArticleBodyHTML(props);
+    const html = this.createHTML(props);
     this.shadowRoot.innerHTML = `
       ${this.styles}
-      ${articleBodyHTML}
+      ${html}
     `;
   }
 }

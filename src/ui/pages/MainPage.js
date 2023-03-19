@@ -42,30 +42,37 @@ class MainPage extends HTMLElement {
     `;
   }
 
-  createArticleHTML(article) {
+  createHTML(response) {
+    const articleItemsHTML = response?.map(this.createArticleItemsHTML).join('');
+    return `
+      <section class='main-page__container'>
+        <h3 class='main-page__heading'>개발</h3>
+        <article>
+          <ul class='article-list__item'>
+            ${articleItemsHTML}          
+          </ul>
+        </article>
+      </section>
+    `;
+  }
+
+  createArticleItemsHTML({ link, title, description, date, thumbnail }) {
     return `
       <article-item
-        link='${article.link}'
-        title='${article.title}'
-        description='${article.description}'
-        date='${article.date}'
-        thumbnail='${article.thumbnail}'
+        link='${link}'
+        title='${title}'
+        description='${description}'
+        date='${date}'
+        thumbnail='${thumbnail}'
       ></article-item>
     `;
   }
 
   render(response) {
-    const articlesHTML = response?.map(this.createArticleHTML).join('');
+    const html = this.createHTML(response);
     this.shadowRoot.innerHTML = `
       ${this.styles}
-      <section class='main-page__container'>
-        <h3 class='main-page__heading'>개발</h3>
-        <article>
-          <ul class='article-list__item'>
-            ${articlesHTML}          
-          </ul>
-        </article>
-      </section>
+      ${html}
     `;
   }
 }

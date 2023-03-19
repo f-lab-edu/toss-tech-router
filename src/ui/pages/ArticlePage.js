@@ -36,20 +36,27 @@ class ArticlePage extends HTMLElement {
     `;
   }
 
-  render(response) {
-    this.shadowRoot.innerHTML = `
-      ${this.styles}
+  createHTML({ thumbnail, title, writer, description }) {
+    return `
       <section class="article-page__container">
         <article-header
-          thumbnail="${response.thumbnail}"
-          title="${response.title}"
-          image="${response.writer.image}"
-          name="${response.writer.name}"
-          job="${response.writer.job}"
-          date="${response.writer.date}"
+          thumbnail="${thumbnail}"
+          title="${title}"
+          image="${writer.image}"
+          name="${writer.name}"
+          job="${writer.job}"
+          date="${writer.date}"
         ></article-header>
-        <article-body description="${response.description}"></article-body>
+        <article-body description="${description}"></article-body>
       </section>
+    `;
+  }
+
+  render(response) {
+    const html = this.createHTML(response);
+    this.shadowRoot.innerHTML = `
+      ${this.styles}
+      ${html}
     `;
   }
 }

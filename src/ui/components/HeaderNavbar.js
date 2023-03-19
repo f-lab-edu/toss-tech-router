@@ -8,8 +8,8 @@ class HeaderNavbar extends HTMLElement {
     this.render();
   }
 
-  render() {
-    this.shadowRoot.innerHTML = `
+  get styles() {
+    return `
       <style>
         :host {
           display: block;
@@ -44,6 +44,11 @@ class HeaderNavbar extends HTMLElement {
           height: auto;
         }
       </style>
+    `;
+  }
+
+  createHTML() {
+    return `
       <header class='header'>
         <nav class='nav'>
           <div class='nav__logo'>
@@ -53,6 +58,14 @@ class HeaderNavbar extends HTMLElement {
           </div>
         </nav>
       </header>
+    `;
+  }
+
+  render() {
+    const html = this.createHTML();
+    this.shadowRoot.innerHTML = `
+      ${this.styles}
+      ${html}
     `;
   }
 }
