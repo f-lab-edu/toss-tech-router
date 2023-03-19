@@ -15,6 +15,7 @@
     "no-restricted-syntax": "off",
     "no-param-reassign": "off",
     "new-cap": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "no-unused-vars": "off"
   }
 }

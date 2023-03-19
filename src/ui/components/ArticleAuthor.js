@@ -1,11 +1,8 @@
-class ArticleAuthor extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-  }
+import { CoreComponent } from '../core';
 
-  connectedCallback() {
-    this.render();
+class ArticleAuthor extends CoreComponent {
+  constructor() {
+    super(['image', 'name', 'job', 'date']);
   }
 
   get styles() {
@@ -57,20 +54,6 @@ class ArticleAuthor extends HTMLElement {
           <span class='article-author__date'>${date}</span>
         </div>
       </div>
-    `;
-  }
-
-  render() {
-    const props = {
-      image: this.getAttribute('image'),
-      name: this.getAttribute('name'),
-      job: this.getAttribute('job'),
-      date: this.getAttribute('date'),
-    };
-    const html = this.createHTML(props);
-    this.shadowRoot.innerHTML = `
-      ${this.styles}
-      ${html}
     `;
   }
 }

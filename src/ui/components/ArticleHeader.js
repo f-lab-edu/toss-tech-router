@@ -1,11 +1,8 @@
-class ArticleHeader extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-  }
+import { CoreComponent } from '../core';
 
-  connectedCallback() {
-    this.render();
+class ArticleHeader extends CoreComponent {
+  constructor() {
+    super(['thumbnail', 'title', 'image', 'name', 'job', 'date']);
   }
 
   get styles() {
@@ -54,22 +51,6 @@ class ArticleHeader extends HTMLElement {
           date='${date}'
         ></article-author>
       </header>
-    `;
-  }
-
-  render() {
-    const props = {
-      thumbnail: this.getAttribute('thumbnail'),
-      title: this.getAttribute('title'),
-      image: this.getAttribute('image'),
-      name: this.getAttribute('name'),
-      job: this.getAttribute('job'),
-      date: this.getAttribute('date'),
-    };
-    const html = this.createHTML(props);
-    this.shadowRoot.innerHTML = `
-      ${this.styles}
-      ${html}
     `;
   }
 }

@@ -1,11 +1,8 @@
-class ArticleBody extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-  }
+import { CoreComponent } from '../core';
 
-  connectedCallback() {
-    this.render();
+class ArticleBody extends CoreComponent {
+  constructor() {
+    super(['description']);
   }
 
   get styles() {
@@ -26,17 +23,6 @@ class ArticleBody extends HTMLElement {
       <article class='article-body'>
         <p>${description}</p>          
       </article>
-    `;
-  }
-
-  render() {
-    const props = {
-      description: this.getAttribute('description'),
-    };
-    const html = this.createHTML(props);
-    this.shadowRoot.innerHTML = `
-      ${this.styles}
-      ${html}
     `;
   }
 }

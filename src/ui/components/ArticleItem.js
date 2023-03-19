@@ -1,11 +1,8 @@
-class ArticleItem extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-  }
+import { CoreComponent } from '../core';
 
-  connectedCallback() {
-    this.render();
+class ArticleItem extends CoreComponent {
+  constructor() {
+    super(['link', 'title', 'description', 'date', 'thumbnail']);
   }
 
   get styles() {
@@ -97,21 +94,6 @@ class ArticleItem extends HTMLElement {
           <p>${date}</p>
         </div>
       </a>
-    `;
-  }
-
-  render() {
-    const props = {
-      link: this.getAttribute('link'),
-      title: this.getAttribute('title'),
-      description: this.getAttribute('description'),
-      date: this.getAttribute('date'),
-      thumbnail: this.getAttribute('thumbnail'),
-    };
-    const html = this.createHTML(props);
-    this.shadowRoot.innerHTML = `
-      ${this.styles}
-      ${html}
     `;
   }
 }

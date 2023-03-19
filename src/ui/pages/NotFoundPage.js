@@ -1,24 +1,16 @@
-class NotFoundPage extends HTMLElement {
+import { CoreComponent } from '../core';
+
+class NotFoundPage extends CoreComponent {
   constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
+    super([]);
   }
 
-  connectedCallback() {
-    this.render();
-  }
-
-  createNotFoundPageHTML() {
+  createHTML() {
     return `
-      <content>
+      <section>
         <h1>Not Found Page</h1>          
-      </content>
+      </section>
     `;
-  }
-
-  render() {
-    const notFoundPageHTML = this.createNotFoundPageHTML();
-    this.shadowRoot.innerHTML = notFoundPageHTML;
   }
 }
 

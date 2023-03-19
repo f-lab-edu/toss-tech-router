@@ -1,11 +1,8 @@
-class HeaderNavbar extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-  }
+import { CoreComponent } from '../core';
 
-  connectedCallback() {
-    this.render();
+class HeaderNavbar extends CoreComponent {
+  constructor() {
+    super([]);
   }
 
   get styles() {
@@ -58,14 +55,6 @@ class HeaderNavbar extends HTMLElement {
           </div>
         </nav>
       </header>
-    `;
-  }
-
-  render() {
-    const html = this.createHTML();
-    this.shadowRoot.innerHTML = `
-      ${this.styles}
-      ${html}
     `;
   }
 }

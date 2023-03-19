@@ -1,15 +1,16 @@
 import { apiGetArticleDetail } from '../../lib/api/article';
+import { CoreComponent } from '../core';
 
-class ArticlePage extends HTMLElement {
+class ArticlePage extends CoreComponent {
   constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
+    super(['thumbnail', 'title', 'writer', 'description']);
   }
 
   async connectedCallback() {
     const articleId = this.getAttribute('articleId');
     const response = await apiGetArticleDetail(articleId);
-    this.render(response);
+    this.props = response;
+    this.render();
   }
 
   get styles() {
@@ -49,14 +50,6 @@ class ArticlePage extends HTMLElement {
         ></article-header>
         <article-body description="${description}"></article-body>
       </section>
-    `;
-  }
-
-  render(response) {
-    const html = this.createHTML(response);
-    this.shadowRoot.innerHTML = `
-      ${this.styles}
-      ${html}
     `;
   }
 }
