@@ -15,6 +15,8 @@ Javascript로 [toss.tech](https://toss.tech) 사이트를 구현하고, 그 과�
 git clone https://github.com/f-lab-edu/toss-tech-route
 npm install
 npm run start
+
+# http://localhost:8080 에서 확인 가능합니다.
 ```
 ### Script
 ```bash
@@ -36,7 +38,7 @@ npm run prettier:check: prettier를 활용하여 코드컨벤션을 확인해요
 ### 구현 내용을 리뷰어에게 명확하게 전달하려고 고민했습니다.
 1. 개발 순서를 세부적으로 계획하고, [issues](https://github.com/f-lab-edu/toss-tech-router/issues)에 등록하여 진행했습니다.
 2. [PR 템플릿](https://github.com/f-lab-edu/toss-tech-router/blob/main/.github/PULL_REQUEST_TEMPLATE.md)을 사용하여 리뷰어가 이해하기 쉽게 구현 내용을 전달했습니다.
-3. [코드리뷰](https://github.com/f-lab-edu/toss-tech-router/pull/6)에 작성한 [위키](https://github.com/f-lab-edu/toss-tech-router/wiki)를 첨부하여, 구현 내용을 상세하게 전달했습니다.
+3. [코드리뷰](https://github.com/f-lab-edu/toss-tech-router/pull/10)에 작성한 [위키](https://github.com/f-lab-edu/toss-tech-router/wiki)를 첨부하여, 구현 내용을 상세하게 전달했습니다.
 ### 코드의 모듈화와 일관성을 유지하기 위해 노력했습니다.
 1. 프로젝트 구조를 lib와 ui로 나누어 폴더 구조를 명확하게 구조화 했습니다.  
 2. 하드코딩을 지양하고, 재사용 가능한 코드는 모듈화하여 관리했습니다.
