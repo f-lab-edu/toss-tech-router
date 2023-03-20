@@ -16,6 +16,7 @@
     "no-param-reassign": "off",
     "new-cap": "off",
     "class-methods-use-this": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }

@@ -1,17 +1,26 @@
-const request = async ({
-  url,
-  options = {
-    method: 'GET',
+import axios from 'axios';
+
+const instance = axios.create({
+  baseURL: '/',
+});
+
+instance.interceptors.request.use(
+  (config) => {
+    return config;
   },
-}) => {
-  const response = await fetch(url, options);
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(`서버의 응답이 올바르지 않습니다. (${response.status}): ${error.message}`);
-  }
+instance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    const errorMessage = error.response ? `서버 응답이 올바르지 않습니다. ${error.response.status}: ${error.response.data.message}` : error.message;
+    return Promise.reject(new Error(errorMessage));
+  },
+);
 
-  return response.json();
-};
-
-export default request;
+export default instance;
