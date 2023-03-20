@@ -12,8 +12,8 @@ export const mockGetArticleList = () =>
 
 export const mockGetArticleDetail = () => {
   const responseCallback = (params) => {
-    const id = parseInt(params.id, 10);
-    return getArticleDetailById(id);
+    const articleId = parseInt(params.articleId, 10);
+    return getArticleDetailById(articleId);
   };
 
   return mockServer({

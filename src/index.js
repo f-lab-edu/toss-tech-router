@@ -1,4 +1,5 @@
 import './ui/styles/reset.css';
+import './ui/styles/root.css';
 import App from './App';
 import { initialWorker } from './lib/mocks';
 

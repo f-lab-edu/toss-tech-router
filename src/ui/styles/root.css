@@ -1,0 +1,21 @@
+:root {
+  --border-grey: rgba(0, 27, 55, 0.1);
+  --border-radius: 0.875rem;
+  --color-h3: #333d4b;
+  --color-h7: #4e5968;
+  --color-p: #8b95a1;
+  --color-blue: #3182f6;
+  --color-white: #fff;
+  --font-size-h2: 3rem;
+  --font-size-h3: 2.25rem;
+  --font-size-h7: 1.0625rem;
+  --font-size-p: 0.9375rem;
+  --font-size-span: 0.875rem;
+
+  --main-page-container-width: 92%;
+  --main-page-container-margin: 4%;
+  --article-space: 5rem;
+  --thumbnail-width: 15rem;
+  --thumbnail-height: 15rem;
+  --thumbnail-transition: 0.2s ease-in-out;
+}

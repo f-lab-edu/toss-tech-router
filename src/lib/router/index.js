@@ -7,15 +7,12 @@ const checkRoutes = (routes, pathname, $target) => {
     return regexp.test(pathname);
   });
 
-  if (!currentRoute) {
-    const notFoundRoute = routes.find((route) => route.path === '/404');
-    new notFoundRoute.component({ $target }).render();
-    return;
-  }
+  const notFoundRoute = routes.find((route) => route.path === '/404');
+  const targetRoute = currentRoute || notFoundRoute;
 
-  const params = getUrlParams(currentRoute, pathname);
+  const params = getUrlParams(targetRoute, pathname);
   renderRoute({
-    component: currentRoute.component,
+    tagName: targetRoute.tagName,
     $target,
     params,
   });
@@ -37,12 +34,30 @@ const getUrlParams = (route, pathname) => {
   return params;
 };
 
-const renderRoute = ({ component, $target, params }) => {
-  const hasParams = isObjectEmpty(params);
-  new component({
-    $target,
-    ...(hasParams && { params }),
-  }).render();
+const renderRoute = ({ tagName, $target, params }) => {
+  try {
+    const $routePage = createElement(tagName, params);
+    $target.innerHTML = '';
+    $target.appendChild($routePage);
+  } catch (e) {
+    console.error('renderRoute Error:', e);
+  }
+};
+
+const createElement = (tagName, props = {}) => {
+  const $element = document.createElement(tagName);
+  try {
+    const hasParams = isObjectEmpty(props);
+    if (hasParams) {
+      Object.entries(props).forEach(([key, value]) => {
+        $element.setAttribute(key, value);
+      });
+    }
+    return $element;
+  } catch (e) {
+    console.error('createElement Error:', e);
+    return $element;
+  }
 };
 
 const handlePopstate = (routes, $target) => {
@@ -50,10 +65,13 @@ const handlePopstate = (routes, $target) => {
 };
 
 const handleLinkClick = (routes, $target, e) => {
-  const $link = e.target.closest('a[data-link]');
-
+  const path = e.composedPath();
+  const $link = path.find((el) => el.tagName === 'A' && el.dataset.link);
   if ($link) {
     e.preventDefault();
+    if (window.location.pathname === $link.dataset.link) {
+      return;
+    }
     const { link } = $link.dataset;
     window.history.pushState(null, null, link);
     checkRoutes(routes, link, $target);

@@ -1,13 +1,20 @@
-function NotFoundPage({ $target }) {
-  const $page = document.createElement('div');
+import { CoreComponent } from '../core';
 
-  this.render = () => {
-    $page.innerHTML = `
-      <h1>NotFound</h1>
+class NotFoundPage extends CoreComponent {
+  constructor() {
+    super([]);
+  }
+
+  createHTML() {
+    return `
+      <section>
+        <h1>Not Found Page</h1>          
+      </section>
     `;
-    $target.innerHTML = '';
-    $target.appendChild($page);
-  };
+  }
 }
+
+export const notFoundPageTagName = 'notfound-page';
+customElements.define(notFoundPageTagName, NotFoundPage);
 
 export default NotFoundPage;
