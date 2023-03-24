@@ -1,20 +1,22 @@
-import request from './index';
+import request, { handleErrorResponse } from './index';
 import { API_URL } from '../utils/constant';
 
 export const apiGetArticleList = async () => {
   try {
-    const response = await request({ url: API_URL.ARTICLES });
-    return response;
+    const response = await request.get(API_URL.ARTICLES);
+    return response.data;
   } catch (error) {
-    return { error: error.message };
+    handleErrorResponse(error);
+    throw error;
   }
 };
 
 export const apiGetArticleDetail = async (id) => {
   try {
-    const response = await request({ url: `${API_URL.ARTICLE_DETAIL}/${id}` });
-    return response;
+    const response = await request.get(`${API_URL.ARTICLE_DETAIL}/${id}`);
+    return response.data;
   } catch (error) {
-    return { error: error.message };
+    handleErrorResponse(error);
+    throw error;
   }
 };
