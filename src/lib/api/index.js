@@ -18,9 +18,23 @@ instance.interceptors.response.use(
     return response;
   },
   (error) => {
-    const errorMessage = error.response ? `서버 응답이 올바르지 않습니다. ${error.response.status}: ${error.response.data.message}` : error.message;
-    return Promise.reject(new Error(errorMessage));
+    return Promise.reject(new CustomError(error.message));
   },
 );
+
+export class CustomError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'CustomError';
+  }
+}
+
+export const handleErrorResponse = (error) => {
+  if (error instanceof CustomError) {
+    console.log('CustomError: ', error.name, error.message);
+    return;
+  }
+  console.log('Error: ', error?.message);
+};
 
 export default instance;
